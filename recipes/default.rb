@@ -23,7 +23,8 @@ when 'debian'
     components %w(main)
     keyserver 'keyserver.ubuntu.com'
     key '379CE192D401AB61'
-    action :create
+    action :add
+    distribution 'ubuntu'
   end
 when'rhel'
   yum_repository 'scaleft' do
