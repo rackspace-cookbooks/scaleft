@@ -19,19 +19,20 @@
 case node['platform_family']
 when 'debian'
   apt_repository 'scaleft' do
-    uri 'https://scaleft.bintray.com/scaleft-apt'
+    uri 'https://pkg.scaleft.com/deb'
+    distribution 'linux'
     components %w(main)
     keyserver 'keyserver.ubuntu.com'
-    key '379CE192D401AB61'
+    key 'https://www.scaleft.com/dl/scaleft_deb_key.asc'
     action :add
-    distribution 'ubuntu'
   end
 when'rhel'
   yum_repository 'scaleft' do
     description 'Official ScaleFT Yum repo'
-    baseurl 'https://scaleft.bintray.com/scaleft-rpm'
+    baseurl 'https://pkg.scaleft.com/rpm'
+    gpgkey 'https://www.scaleft.com/dl/scaleft_rpm_key.asc'
     action :create
-    gpgcheck false
+    gpgcheck true
   end
 else
   fail "Platform #{node['platform_family']} is not currently supported"
