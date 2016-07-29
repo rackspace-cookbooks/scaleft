@@ -55,6 +55,12 @@ file '/etc/sft/sftd.yaml' do
   content "InitialURL: #{node['scaleft']['initial_url']}"
 end
 
+# https://github.com/rackspace-cookbooks/scaleft/issues/2
+execute 'chkconfig_add_sftd' do
+  command 'chkconfig --add sftd'
+  not_if 'chkconfig --list | grep -q sftd'
+end
+
 service 'sftd' do
   action [:enable, :start]
 end
