@@ -26,7 +26,7 @@ when 'debian'
     key 'https://www.scaleft.com/dl/scaleft_deb_key.asc'
     action :add
   end
-when'rhel'
+when 'rhel'
   yum_repository 'scaleft' do
     description 'Official ScaleFT Yum repo'
     baseurl 'https://pkg.scaleft.com/rpm'
@@ -35,7 +35,7 @@ when'rhel'
     gpgcheck true
   end
 else
-  fail "Platform #{node['platform_family']} is not currently supported"
+  raise "Platform #{node['platform_family']} is not currently supported"
 end
 
 package 'scaleft-server-tools' do
@@ -47,7 +47,7 @@ directory '/etc/sft' do
 end
 
 if node['scaleft']['initial_url'].nil?
-  fail "The attribute node['scaleft']['initial_url'] must be set"
+  raise "The attribute node['scaleft']['initial_url'] must be set"
 end
 
 file '/etc/sft/sftd.yaml' do
