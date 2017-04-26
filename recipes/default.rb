@@ -23,14 +23,14 @@ when 'debian'
     distribution 'linux'
     components %w(main)
     keyserver 'keyserver.ubuntu.com'
-    key 'https://www.scaleft.com/dl/scaleft_deb_key.asc'
+    key 'https://dist.scaleft.com/pki/scaleft_deb_key.asc'
     action :add
   end
 when'rhel'
   yum_repository 'scaleft' do
     description 'Official ScaleFT Yum repo'
     baseurl 'https://pkg.scaleft.com/rpm'
-    gpgkey 'https://www.scaleft.com/dl/scaleft_rpm_key.asc'
+    gpgkey 'https://dist.scaleft.com/pki/scaleft_rpm_key.asc'
     action :create
     gpgcheck true
   end
