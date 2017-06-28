@@ -32,5 +32,3 @@ template '/etc/sft/sftd.yaml' do
   group 'root'
   mode '0755'
 end
-
-

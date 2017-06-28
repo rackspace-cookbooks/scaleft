@@ -38,12 +38,12 @@ else
   fail "Platform #{node['platform_family']} is not currently supported"
 end
 
+# Create the config file
+include_recipe "scaleft::sftd_config"
+
 package 'scaleft-server-tools' do
   action :install
 end
-
-# Create the config file
-include_recipe "scaleft::sftd_config"
 
 # https://github.com/rackspace-cookbooks/scaleft/issues/2
 execute 'chkconfig_add_sftd' do
