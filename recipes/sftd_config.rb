@@ -31,4 +31,5 @@ template '/etc/sft/sftd.yaml' do
   owner 'root'
   group 'root'
   mode '0755'
+  notifies :restart, 'service[sftd]', :delayed
 end
