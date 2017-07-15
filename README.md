@@ -176,3 +176,4 @@ Contributing
 License and Authors
 -------------------
 Authors:: Jim Rosser (jim.rosser@rackspace.com)
+          Robert Berger (rob@omnyway.com)
