@@ -1,0 +1,85 @@
+---
+# Common Configuration Options:
+#
+# NOTE: This file managed by Chef.
+# Manual changes will be removed on next chef-client run
+#
+<% sft = node['scaleft'] %>
+
+<% if sft['access_address'] %>
+AccessAddress: <%= sft['access_address'] %>
+<% else %>
+# AccessAddress is unset by default
+<% end %>
+
+<% if sft['alt_names'] %>
+AltNames:  [<%= sft['alt_names'].join(",") %>]
+<% else %>
+# AltNames is unset by default
+<% end %>
+
+<% if sft['auto_enroll'] %>
+AutoEnroll: <%= sft['auto_enroll'] %>
+<% else %>
+# AutoEnroll is unset by default
+<% end %>
+
+<% if sft['bastion'] %>
+Bastion: <%= sft['bastion'] %>
+<% else %>
+# Bastion is unset by default
+<% end %>
+
+<% if sft['canonical_name'] %>
+CanonicalName: <%= sft['canonical_name'] %>
+<% else %>
+# CanonicalName is unset by default
+<% end %>
+
+<% if sft['initial_url'] %>
+InitialURL: <%= sft['initial_url'] %>
+<% else %>
+# InitialURL is unset by default
+<% end %>
+
+<% if sft['log_level'] %>
+LogLevel: <%= sft['log_level'] %>
+<% else %>
+# LogLevel is INFO by default
+<% end %>
+
+<% if sft['buffer_file'] %>
+BufferFile: <%= sft['buffer_file'] %>
+<% else %>
+# BufferFile will use ScaleFT Default value
+<% end %>
+
+<% if sft['enrollment_token_file'] %>
+EnrollmentTokenFile: <%= sft['enrollment_token_file'] %>
+<% else %>
+# EnrollmentTokenFile will use ScaleFT Default value
+<% end %>
+
+<% if sft['server_file'] %>
+ServerFile: <%= sft['server_file'] %>
+<% else %>
+# ServerFile will use ScaleFT Default value
+<% end %>
+
+<% if sft['sshd_config_file'] %>
+SSHDConfigFile: <%= sft['sshd_config_file'] %>
+<% else %>
+# SSHDConfigFile will use ScaleFT Default value
+<% end %>
+
+<% if sft['token_file'] %>
+TokenFile: <%= sft['token_file'] %>
+<% else %>
+# TokenFile will use ScaleFT Default value
+<% end %>
+
+<% if sft['trusted_user_ca_file'] %>
+TrustedUserCAKeysFile: <%= sft['trusted_user_ca_file'] %>
+<% else %>
+# TrustedUserCAKeysFile will use ScaleFT Default value
+<% end %>

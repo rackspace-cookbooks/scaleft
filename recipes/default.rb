@@ -38,21 +38,11 @@ else
   fail "Platform #{node['platform_family']} is not currently supported"
 end
 
+# Create the config file
+include_recipe "scaleft::sftd_config"
+
 package 'scaleft-server-tools' do
   action :install
-end
-
-directory '/etc/sft' do
-  action :create
-end
-
-if node['scaleft']['initial_url'].nil?
-  fail "The attribute node['scaleft']['initial_url'] must be set"
-end
-
-file '/etc/sft/sftd.yaml' do
-  action :create
-  content "InitialURL: #{node['scaleft']['initial_url']}"
 end
 
 # https://github.com/rackspace-cookbooks/scaleft/issues/2
