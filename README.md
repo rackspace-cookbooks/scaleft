@@ -9,7 +9,7 @@ Only works with RHEL and Debian based distros.
 Attributes
 ----------
 
-** NOTE: if the `Attribute Default` is `nil` below, that means it does not override the
+**NOTE: if the Default is `nil` below, that means it does not override the
 default of the ScaleFT options as described at
 https://www.scaleft.com/docs/sftd/#common-configuration-options**
 
