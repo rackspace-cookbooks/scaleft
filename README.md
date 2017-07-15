@@ -9,7 +9,7 @@ Only works with RHEL and Debian based distros.
 Attributes
 ----------
 
-** NOTE: if the Default is `nil` below, that means it does not override the
+** NOTE: if the `Attribute Default` is `nil` below, that means it does not override the
 default of the ScaleFT options as described at
 https://www.scaleft.com/docs/sftd/#common-configuration-options**
 
@@ -23,9 +23,19 @@ https://www.scaleft.com/docs/sftd/#common-configuration-options**
     <th>ScaleFT Default</th>
   </tr>
   <tr>
+    <td><tt>['scaleft']['initial_url_required']</tt></td>
+    <td>String</td>
+    <td>If set, recreates the same behavior as v0.1.0. I.E. you must supply the initial_url parameter</td>
+    <td>true</td>
+    <td><tt>N/A</tt></td>
+  </tr>
+  <tr>
     <td><tt>['scaleft']['initial_url']</tt></td>
     <td>String</td>
-    <td>your scaleft endpoint</td>
+    <td>When AutoEnroll is set to true, this option specifies the InitialURL 
+    that the server can use to auto-enroll. 
+    When an enrollment.token is provided, this option is ignored. 
+    If you are using the ScaleFT SaaS, you can leave this unset</td>
     <td>nil</td>
     <td><tt>unset</tt></td>
   </tr>
@@ -134,6 +144,25 @@ Just include `scaleft` in your node's `run_list`:
   ]
 }
 ```
+
+#### In a wrapper recipe when using ScaleFT SaaS
+
+```ruby
+node.set['scaleft']['initial_url_required'] = false
+
+node.set['scaleft']['bastion'] = calculate_bastion_name(node['hostname'], node.chef_environment)
+node.set['scaleft']['canonical_name'] = calculate_canonical_name(node['hostname'], node.chef_environment)
+node.set['scaleft']['alt_names'] = calculate_alt_names(node['hostname'], node.chef_environment)
+
+include_recipe "scaleft"
+```
+
+**Note:** The `calculate_*` functions are a placeholder for how you would
+          determine the values of the various parameters at chef-client runtime.
+
+Remeber to add `depends scaleft` to your `metatdata.rb` and this repo to your
+`Berksfile` for your wrapper cookbook.
+
 
 Contributing
 ------------
