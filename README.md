@@ -27,91 +27,91 @@ https://www.scaleft.com/docs/sftd/#common-configuration-options**
     <td>String</td>
     <td>your scaleft endpoint</td>
     <td>nil</td>
-    <td>unset</td>
+    <td><tt>unset</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['access_address']</tt></td>
     <td>String</td>
     <td>For hosts with multiple interfaces, or behind DNATs; specifies the address clients will use when connecting to this host</td>
     <td>nil</td>
-    <td>unset</td>
+    <td><tt>unset</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['alt_names']</tt></td>
     <td>String</td>
     <td>A list of alternative hostnames for this server. These names can be used as targetnames in sft ssh</td>
     <td>nil</td>
-    <td>unset</td>
+    <td><tt>unset</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['auto_enroll'] </tt></td>
     <td>String</td>
     <td>When true, sftd will attempt to automatically enroll with ScaleFT on initial startup</td>
     <td>nil</td>
-    <td>true</td>
+    <td><tt>true</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['bastion']</tt></td>
     <td>String</td>
     <td>Specifies the bastion-host clients will automatically use when connecting to this host</td>
     <td>nil</td>
-    <td>unset</td>
+    <td><tt>unset</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['canonical_name']</tt></td>
     <td>String</td>
-    <td>Specifies the name clients should use/see when connecting to this host. Overrides the name found with `hostname`</td>
+    <td>Specifies the name clients should use/see when connecting to this host. Overrides the name found with hostname</td>
     <td>nil</td>
-    <td>unset</td>
+    <td><tt>unset</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['log_level']</tt></td>
     <td>String</td>
     <td>Controls the logging verbosity. Valid values are WARN, INFO or DEBUG. Runing sftd with the --debug flag is equivalent to configuring a level of DEBUG, and will override values from the config file</td>
     <td>nil</td>
-    <td>`INFO`</td>
+    <td><tt>INFO</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['buffer_file']</tt></td>
     <td>String</td>
     <td>Path-prefix to the file(s) that sftd will use for it’s local buffer store. Individual buffers will have a ‘.’ and an incrementing number will be appended to the path-prefix. BufferFiles which have been synchronized will be removed automatically</td>
     <td>nil</td>
-    <td>`/var/lib/sftd/buffer.db`</td>
+    <td><tt>/var/lib/sftd/buffer.db</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['enrollment_token_file']</tt></td>
     <td>String</td>
     <td>Path to the file containing a secret token for token based enrollment. This file is deleted after a successful enrollment to the platform</td>
     <td>nil</td>
-    <td>`/var/lib/sftd/enrollment.token`</td>
+    <td><tt>/var/lib/sftd/enrollment.token</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['server_file']</tt></td>
     <td>String</td>
     <td>Path to the file that sftd uses to store the server URL that it will connect to</td>
     <td>nil</td>
-    <td>`/var/lib/sftd/device.server`</td>
+    <td><tt>/var/lib/sftd/device.server</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['sshd_config_file']</tt></td>
     <td>String</td>
     <td>Path to sshd configuration file. *Note sftd will modify this file*</td>
     <td>nil</td>
-    <td>`/etc/ssh/sshd_config`</td>
+    <td><tt>/etc/ssh/sshd_config</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['token_file']</tt></td>
     <td>String</td>
     <td>Path to file that sftd uses to store its secret token for authentication to ScaleFT</td>
     <td>nil</td>
-    <td>`/var/lib/sftd/device.token`</td>
+    <td><tt>/var/lib/sftd/device.token</tt></td>
   </tr>
   <tr>
     <td><tt>['scaleft']['trusted_user_ca_file']</tt></td>
     <td>String</td>
     <td>Path for sftd to write the list of trusted SSH Certificate authorities to</td>
     <td>nil</td>
-    <td>`/var/lib/sftd/ssh_ca.pub`</td>
+    <td><tt>/var/lib/sftd/ssh_ca.pub</tt></td>
   </tr>
 </table>
 
